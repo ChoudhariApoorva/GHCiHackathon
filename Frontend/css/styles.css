@@ -1,0 +1,18 @@
+.mybackground
+{
+	background-image: url("background.jpg");
+	background-repeat:no-repeat;
+   	background-size:cover;
+}
+
+.btn > btn-default
+{
+	width: 200%;
+}
+
+.ManageRequestContainer
+{
+	width: 800px;
+  	margin: 0 auto;
+}
+
