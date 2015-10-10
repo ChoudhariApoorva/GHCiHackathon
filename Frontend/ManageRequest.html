@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+	<head>
+	    <meta charset="utf-8">
+	    <title>GHCI</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/yeti/bootstrap.min.css" rel="stylesheet">
+	    <link href="styles.css" rel="stylesheet">
+	    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	    <script src="ManangeRequest.js"></script>
+  	</head>
+  	
+  	<body class="ManageReqBackground">
+	
+	<nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project 5</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="CreateRequest.html">Create Request</a></li>
+            <li><a href="ManageRequest.html">Manage Request</a></li>
+            <li><a href="#">Notifications</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Logged in as admin</a></li>
+            <li><a href="#">More</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="ManageRequestContainer">
+    	<!--Table which contains the requests and the corresponding delete button-->
+	    <table class="table table-striped table-hover">
+	  		<thead>
+	    		<tr>		
+			      <th>#</th>
+			      <th>REQUESTS</th>
+			      <th>DETAILS</th>
+			      <th>DELETE REQUEST</th>
+	    		</tr>
+	  		</thead>
+	  		<tbody>
+	    		<tr>
+			      <td>1</td>
+			      <td><a href="#req1" class="requests" style="font-size:150%">Help with writing paper</a></td>
+			      <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#view-details">View Details</a></td>
+			      <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete">Delete</a></td>
+	    		</tr>
+	    		<tr>
+			      <td>2</td>
+			      <td><a href="#req2" class="requests" style="font-size:150%">Require Blood : O+ve</a></td>
+			      <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#view-details">View Details</a></td>
+			      <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete">Delete</a></td>
+	    		</tr>
+	    		<tr>
+			      <td>3</td>
+			      <td><a href="#req2" class="requests" style="font-size:150%">Scribe required</a></td>
+			      <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#view-details">View Details</a></td>
+			      <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete">Delete</a></td>
+	    		</tr>
+	    		<tr>
+			      <td>4</td>
+			      <td><a href="#req2" class="requests" style="font-size:150%">Need a ride</a></td>
+			      <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#view-details">View Details</a></td>
+			      <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete">Delete</a></td>
+	    		</tr>
+	  		</tbody>
+		</table> 
+
+		<!--Pop up box to view details-->
+		<div class="modal fade" id="view-details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    		<div class="modal-dialog">
+        		<div class="modal-content">
+	            	<div class="modal-header"><h3>Help with writing paper</h3></div>
+	            	<div class="modal-body">
+	            		<h4>Volunteer Information</h4>
+	            		<ul>
+	            			<li>Name</li>
+	            			<li>Age</li>
+	            			<li>Place</li>
+	            		</ul>
+	            	</div>
+	            	<div class="modal-footer">
+	                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	                	<a class="btn btn-primary btn-ok">Connect</a>
+	            	</div>
+        		</div>
+    		</div>
+		</div>
+
+		<!--Pop up box to confirm delete-->
+		<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    		<div class="modal-dialog">
+        		<div class="modal-content">
+	            	<div class="modal-header">Delete Confirmation</div>
+	            	<div class="modal-body">Are you sure you want to delete?</div>
+	            	<div class="modal-footer">
+	                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	                	<a class="btn btn-danger btn-ok">Delete</a>
+	            	</div>
+        		</div>
+    		</div>
+		</div>
+
+		<!--<div id="req1">REQ1</div>
+		<div id="req2">REQ2</div>-->
+
+ 	</div>
+
+	</body>
+</html
+
+
+

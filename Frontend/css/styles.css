@@ -1,34 +1,18 @@
-html,body {
-  height:100%;
+.mybackground
+{
+	background-image: url("background-4.jpg");
+	background-repeat:no-repeat;
+   	background-size:cover;
 }
 
-h1 {
-  font-family: Arial,sans-serif
-  font-size:80px;
-  color:#DDCCEE;
+.btn > btn-default
+{
+	width: 200%;
 }
 
-.lead {
-	color:#DDCCEE;
+.ManageRequestContainer
+{
+	width: 800px;
+  	margin: 0 auto;
 }
 
-
-/* Custom container */
-.container-full {
-  margin: 0 auto;
-  width: 100%;
-  min-height:100%;
-  background-color:#110022;
-  color:#eee;
-  overflow:hidden;
-}
-
-.container-full a {
-  color:#efefef;
-  text-decoration:none;
-}
-
-.v-center {
-  margin-top:7%;
-}
-  
