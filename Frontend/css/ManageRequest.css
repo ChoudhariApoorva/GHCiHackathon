@@ -1,3 +1,10 @@
+.mybackground
+{
+	background-image: url("manage_req_background.jpg");
+	background-repeat:no-repeat;
+   	background-size:cover;
+}
+
 .btn > btn-default
 {
 	width: 200%;
