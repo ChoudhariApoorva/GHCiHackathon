@@ -101,3 +101,18 @@
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
+
+.contact-details-next
+{
+	text-align:right;
+}
+
+.request-details-submit
+{
+	text-align:right;
+}
+
+.inline-display-buttons
+{
+	display:inline;
+}
