@@ -3,3 +3,11 @@
 	width: 3500px;
   	margin: 0 auto;
 }
+
+.mybackground
+{
+	background-image: url("profile_background.jpg");
+	background-repeat:no-repeat;
+   	background-size:cover;
+}
+
