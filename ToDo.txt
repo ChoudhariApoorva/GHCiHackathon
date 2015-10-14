@@ -1,0 +1,10 @@
+ToDo:
+1. Facebook Login
+2. Auto fill checkbox in Contact Details page
+3. Text field for Other Conditions
+4. Icons in ManageRequest Page
+5. Add Badge to Notifications tab
+6. Remove unaccepted requests from Notifications page
+7. Name for the Project
+8. Analytics - Investigation required
+
