@@ -1,9 +1,0 @@
-{
-  "fullName":"string",
-  "emailId":"string",
-  "mobileNumber":"string",
-  "gender":"M/F",
-  "dateOfBirth":"date",
-  "city":"string",
-  "state":"string"
-}
