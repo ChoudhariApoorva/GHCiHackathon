@@ -1,6 +1,16 @@
-package com.hackathon.ghc.dto;
+package com.hackathon.ghc.model;
 
-public class Contact {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "profile")
+@CompoundIndex(name="email_constraint", def="{'emailId':1}", unique=true)
+
+public class ContactEntity {
+
+	@Id
+	private String id;
 	private String name;
 	private String emailId;
 	private String mobileNumber;
@@ -8,6 +18,29 @@ public class Contact {
 	private long dateOfBirth;
 	private String city;
 	private String state;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public ContactEntity() {
+
+	}
+
+	public ContactEntity(String name, String emailId, String mobileNumber, String gender, long dateOfBirth, String city,
+			String state) {
+		this.name = name;
+		this.emailId = emailId;
+		this.mobileNumber = mobileNumber;
+		this.gender = gender;
+		this.dateOfBirth = dateOfBirth;
+		this.city = city;
+		this.state = state;
+	}
 
 	public String getName() {
 		return name;
