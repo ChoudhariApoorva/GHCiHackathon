@@ -77,6 +77,10 @@ $(document).ready(function(e){
 			{
 	    		alert(result.success); // result is an object which is created from the returned JSON
 			},
+			error : function(req, status, error)
+   			{
+    			alert(req.status);
+   			}
 		});
 
 		});
