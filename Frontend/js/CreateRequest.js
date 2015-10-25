@@ -48,31 +48,33 @@ $(document).ready(function(e){
 		var requestName = $('#inputRequestName').val(); 	
 		var requiredBy = $('#inputReqByDate').val(); 	
 
-		$.post(" http://localhost:8080/antardrishti/create",
-		{
-        	"contact":
-        	{
-	      		"name":name,
-	      		"emailId":emailId,
-	      		"mobileNumber":mobileNumber,
-	      		"gender":gender,
-	      		"dateOfBirth":dateOfBirth,
-	      		"city":city,
-	      		"state":state
-   			},
-   			"request":
-   			{
-		      	"type":type,
-		      	"condition":condition,
-		      	"requestName":requestName,
-		      	"requiredBy":requiredBy
-   			}
-    	},
-    	function(data)
-    	{
-    		alert("Data submitted");
-    	});
-		
-	});
+		var data = {"contact":{
+						"name":name,
+			      		"emailId":emailId,
+			      		"mobileNumber":mobileNumber,
+			      		"gender":gender,
+			      		"dateOfBirth":dateOfBirth,
+			      		"city":city,
+			      		"state":state	
+						},
+
+					"request":{
+						"type":type,
+		      			"condition":condition,
+				      	"requestName":requestName,
+				      	"requiredBy":requiredBy
+				       	}
+					}
+
+		$.ajax
+		({
+   			dataType : "json",
+    		contentType: "application/json; charset=utf-8",
+    		data : JSON.stringify(data),
+    		success : function(result) 
+    		{
+        		alert(result.success); // result is an object which is created from the returned JSON
+    		},
+		});
 
 });
