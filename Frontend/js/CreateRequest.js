@@ -63,7 +63,7 @@ $(document).ready(function(e){
 		      			"condition":condition,
 				      	"requestName":requestName,
 				      	"requiredBy":requiredBy
-				       	}
+				       	},
 					}
 
 		$.ajax
@@ -75,6 +75,8 @@ $(document).ready(function(e){
     		{
         		alert(result.success); // result is an object which is created from the returned JSON
     		},
+		});
+
 		});
 
 });
