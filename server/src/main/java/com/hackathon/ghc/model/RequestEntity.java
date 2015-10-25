@@ -6,6 +6,7 @@ public class RequestEntity {
 	@Id
 	private String id;
 
+	private String contact;
 	private int typeId;
 	private String condition;
 	private String requestName;
@@ -15,7 +16,8 @@ public class RequestEntity {
 
 	}
 
-	public RequestEntity(int type, String condition, String requestName, long requiredBy) {
+	public RequestEntity(String contact, int type, String condition, String requestName, long requiredBy) {
+		this.contact = contact;
 		this.typeId = type;
 		this.condition = condition;
 		this.requestName = requestName;
@@ -60,6 +62,14 @@ public class RequestEntity {
 
 	public void setRequiredBy(long requiredBy) {
 		this.requiredBy = requiredBy;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
 }
