@@ -68,13 +68,15 @@ $(document).ready(function(e){
 
 		$.ajax
 		({
-   			dataType : "json",
-    		contentType: "application/json; charset=utf-8",
-    		data : JSON.stringify(data),
-    		success : function(result) 
-    		{
-        		alert(result.success); // result is an object which is created from the returned JSON
-    		},
+			url : "http://localhost:8080/antardrishti/create",
+			type : "POST",
+			dataType : "json",
+			contentType: "application/json",
+			data : JSON.stringify(data),
+			success : function(result) 
+			{
+	    		alert(result.success); // result is an object which is created from the returned JSON
+			},
 		});
 
 		});
