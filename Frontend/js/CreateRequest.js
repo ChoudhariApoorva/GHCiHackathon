@@ -28,7 +28,17 @@ $(document).ready(function(e){
 		var name = $('#inputFullName').val();
 		var emailId = $('#inputEmailId').val();
 		var mobileNumber = $('#inputMobileNumber').val();
-		var gender = $('#radioMale').val();
+
+		var check_gender = document.getElementsByName('optionsGender');
+		var gender;
+		for(var i = 0; i < check_gender.length; i++)
+		{
+    		if(check_gender[i].checked)
+    		{
+        		gender = check_gender[i].value;
+    		}
+		}
+		
 		var dateOfBirth = $('#inputDOB').val();
 		var city = $('#inputCity').val();
 		var state = $('#inputState').val();
@@ -40,8 +50,27 @@ $(document).ready(function(e){
 
 		$.post(" http://localhost:8080/antardrishti/create",
 		{
-        	name:name,
-        	emailId:emailId
+        	"contact":
+        	{
+	      		"name":name,
+	      		"emailId":emailId,
+	      		"mobileNumber":mobileNumber,
+	      		"gender":gender,
+	      		"dateOfBirth":dateOfBirth,
+	      		"city":city,
+	      		"state":state
+   			},
+   			"request":
+   			{
+		      	"type":type,
+		      	"condition":condition,
+		      	"requestName":requestName,
+		      	"requiredBy":requiredBy
+   			}
+    	},
+    	function(data)
+    	{
+    		alert("Data submitted");
     	});
 		
 	});
