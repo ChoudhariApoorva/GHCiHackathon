@@ -68,7 +68,7 @@ $(document).ready(function(e){
 
 		$.ajax
 		({
-			url : "http://localhost:8080/antardrishti/create",
+			url : "localhost:8080/server/antardrishti/create",
 			type : "POST",
 			dataType : "json",
 			contentType: "application/json",
