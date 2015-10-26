@@ -68,7 +68,7 @@ $(document).ready(function(e){
 
 		$.ajax
 		({
-			url : "localhost:1234/server/antardrishti/create",
+			url : "server/antardrishti/create",
 			type : "POST",
 			dataType : "json",
 			contentType: "application/json",
@@ -76,10 +76,12 @@ $(document).ready(function(e){
 			success : function(result) 
 			{
 	    		alert("result.success"); // result is an object which is created from the returned JSON
+	    		alert(result.success);
 			},
 			error : function(req, status, error)
    			{
     			alert("req.status");
+				alert(req.error);
    			}
 		});
 
