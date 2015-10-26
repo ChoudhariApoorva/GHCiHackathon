@@ -68,18 +68,18 @@ $(document).ready(function(e){
 
 		$.ajax
 		({
-			url : "localhost:8080/server/antardrishti/create",
+			url : "localhost:1234/server/antardrishti/create",
 			type : "POST",
 			dataType : "json",
 			contentType: "application/json",
 			data : JSON.stringify(data),
 			success : function(result) 
 			{
-	    		alert(result.success); // result is an object which is created from the returned JSON
+	    		alert("result.success"); // result is an object which is created from the returned JSON
 			},
 			error : function(req, status, error)
    			{
-    			alert(req.status);
+    			alert("req.status");
    			}
 		});
 
