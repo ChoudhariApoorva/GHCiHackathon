@@ -16,39 +16,38 @@ function doSubmitAction()
 	var city = document.getElementById("inputCity").value;
 	var state = document.getElementById("inputState").value;
 
-	var data = [{"name" : name},
+	/*var data = [{"name" : name},
 				{"emailId" : emailId},
 				{"number" : number},
 				{"gender" : gender},
 				{"dob" : dob},
 				{"city" : city},
 				{"state" : state}
-				]
+				]*/
 	//alert(name + ',' + emailId + ',' + number + ',' + gender + ',' + dob + ',' + city + ',' + state);
-	alert(JSON.stringify(data));
+	
+	var data = new FormData();
+	data.append("name",name);
+	data.append("number",number);
+	data.append("emailId",emailId);
+	data.append("gender",gender);
+	data.append("dob",dob);
+	data.append("city",city);
+	data.append("state",state);
 
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'profile.php', true);
+	alert("Hello");
 
-	xhr.onload = function() 
-	{
-    	if (this.status == 200) 
-    	{
-	      var resp = JSON.parse(this.response);
-	      alert('Server got:', resp);
-    	}
-  	}
-  	
-  	xhr.send(data);
+	xhr.open("POST","http://localhost/GHCiHackathon/Backend/profile.php",true);
+	
+	xhr.onreadystatechange = function() 
+    {
+		if(xhr.readyState == 4) 
+			{
+				alert(xhr.status);
+			}
+			
+	};
+	xhr.send(data);
 }
-
-
-/*$(document).ready(function(e){
-
-	$('#ProfileTab-SubmitButton').click(function()
-	{
-		alert("Hello World");
-	});
-
-});*/
 
