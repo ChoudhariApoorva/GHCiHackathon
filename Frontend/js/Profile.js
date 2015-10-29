@@ -36,42 +36,22 @@ function doSubmitAction()
 	data.append("state",state);
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST","http://localhost/profile.php",true);
-	//xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+	alert("Hello");
+
+	xhr.open("POST","http://localhost/GHCiHackathon/Backend/profile.php",true);
 	
 	xhr.onreadystatechange = function() 
     {
-    if(xhr.readyState == 4 && xhr.status == 200) 
-        {
-        	alert(xhr.responseText);
-        }
-    }
-    //alert(xhr.responseText);
+		if(xhr.readyState == 4) 
+			{
+				alert(xhr.status);
+			}
+			
+	};
 	xhr.send(data);
 
-	//alert(JSON.stringify(data));
 
-	/*xhr.open('POST', 'http://localhost:8080/Backend/profile.php', true);
 
-	xhr.onload = function() 
-	{
-    	if (this.status == 200) 
-    	{
-	      var resp = JSON.parse(this.response);
-	      alert('Server got:', resp);
-    	}
-  	}
-  	
-  	xhr.send(data);*/
 }
-
-
-/*$(document).ready(function(e){
-
-	$('#ProfileTab-SubmitButton').click(function()
-	{
-		alert("Hello World");
-	});
-
-});*/
 
