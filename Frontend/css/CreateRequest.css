@@ -1,3 +1,8 @@
+input[type='text']
+{
+	 color: black;
+	 font-family:"Arial";
+}
 .mybackground
 {
 	background-image: url("create_req_background.jpg");

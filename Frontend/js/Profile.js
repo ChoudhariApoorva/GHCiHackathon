@@ -16,19 +16,42 @@ function doSubmitAction()
 	var city = document.getElementById("inputCity").value;
 	var state = document.getElementById("inputState").value;
 
-	var data = [{"name" : name},
+	/*var data = [{"name" : name},
 				{"emailId" : emailId},
 				{"number" : number},
 				{"gender" : gender},
 				{"dob" : dob},
 				{"city" : city},
 				{"state" : state}
-				]
+				]*/
 	//alert(name + ',' + emailId + ',' + number + ',' + gender + ',' + dob + ',' + city + ',' + state);
-	alert(JSON.stringify(data));
+	
+	var data = new FormData();
+	data.append("name",name);
+	data.append("number",number);
+	data.append("emailId",emailId);
+	data.append("gender",gender);
+	data.append("dob",dob);
+	data.append("city",city);
+	data.append("state",state);
 
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'profile.php', true);
+	xhr.open("POST","http://localhost/profile.php",true);
+	//xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	
+	xhr.onreadystatechange = function() 
+    {
+    if(xhr.readyState == 4 && xhr.status == 200) 
+        {
+        	alert(xhr.responseText);
+        }
+    }
+    //alert(xhr.responseText);
+	xhr.send(data);
+
+	//alert(JSON.stringify(data));
+
+	/*xhr.open('POST', 'http://localhost:8080/Backend/profile.php', true);
 
 	xhr.onload = function() 
 	{
@@ -39,7 +62,7 @@ function doSubmitAction()
     	}
   	}
   	
-  	xhr.send(data);
+  	xhr.send(data);*/
 }
 
 
