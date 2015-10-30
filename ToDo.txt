@@ -8,3 +8,16 @@ ToDo:
 7. Name for the Project
 8. Analytics - Investigation required
 
+
+---------------------------
+
+- Hide 'required by' when 'offering aid' radio button is chosen
+- add description in request details page (upto 200 characters)
+- placeholder for request name
+- Logged in as <user name>
+- Logout
+- change home page
+
+-validation of input fields
+-disable back button of browser in the home page
+

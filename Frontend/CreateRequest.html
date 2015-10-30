@@ -63,6 +63,23 @@
 							<div class="col-lg-12">
 								<form class="form-horizontal" style="display: block;" id="login-form">
 								  <fieldset>
+
+									<div class="form-group">
+									  <label class="col-lg-2 control-label">Auto-fill details</label>
+									  <div class="col-lg-10">
+										
+										  <label>
+											<input type="radio" name="optionsAutofill" id="radioYes" value="Yes" checked="">
+											Yes
+										  </label>
+										
+										  <label style="margin-left:20px; margin-top:10px">
+											<input type="radio" name="optionsAutofill" id="radioNo" value="No" onclick="deleteAutofill()">
+											No
+										  </label>
+										
+									  </div>
+									</div>
 									
 									<div class="form-group">
 									  <label for="inputEmail" class="col-lg-2 control-label">Full Name</label>
@@ -79,7 +96,7 @@
 									<div class="form-group">
 									  <label for="inputMobileNumber" class="col-lg-2 control-label">Mobile Number</label>
 									  <div class="col-lg-10">
-										<input type="text" class="form-control" id="inputMobileNumber" placeholder="+919876543210">
+										<input type="text" class="form-control" id="inputMobileNumber" placeholder="9876543210">
 									  </div>
 									</div>
 									<div class="form-group">
@@ -101,7 +118,7 @@
 									<div class="form-group">
 									  <label for="inputDOB" class="col-lg-2 control-label">Date of Birth</label>
 									  <div class="col-lg-10">
-										<input type="text" class="form-control" id="inputDOB" placeholder="dd-mm-yyyy">
+										<input type="text" class="form-control" id="inputDOB" placeholder="yyyy-mm-dd">
 									  </div>
 									</div>
 									<div class="form-group">
@@ -135,7 +152,7 @@
 										  </label>
 										
 										  <label style="margin-left:20px; margin-top:10px">
-											<input type="radio" name="optionsType" id="radioOfferingAid" value="2">
+											<input type="radio" name="optionsType" id="radioOfferingAid" value="2" onclick="deleteRequiredDate()">
 											Offering Aid
 										  </label>
 										
@@ -159,7 +176,15 @@
 										<input type="text" class="form-control" id="inputRequestName">
 									  </div>
 									</div>
+
 									<div class="form-group">
+									  <label for="inputReqName" class="col-lg-2 control-label" tabindex="4">Description</label>
+									  <div class="col-lg-10">
+										<textarea rows="4" cols="50"  maxlength="200" placeholder="Upto 200 characters"></textarea>
+									  </div>
+									</div>
+
+									<div class="form-group" id="labelReqByDate">
 									  <label for="inputReqByDate" class="col-lg-2 control-label">Required By (Date)</label>
 									  <div class="col-lg-10">
 										<input type="text" class="form-control" id="inputReqByDate" placeholder="dd-mm-yyyy">

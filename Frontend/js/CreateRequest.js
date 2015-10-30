@@ -1,4 +1,37 @@
-$(document).ready(function(e){
+function foo(gender)
+{
+	if(gender == "Male")
+		$('#radioMale').prop("checked",true);
+	else
+		$('#radioFemale').prop("checked",true);
+}
+
+function deleteAutofill()
+{
+	document.getElementById("login-form").reset();
+	$("#radioNo").prop("checked",true);
+}
+
+function deleteRequiredDate()
+{
+	var labelreqByDate = document.getElementById("labelReqByDate");
+	labelreqByDate.style.display = 'none';
+}
+
+$(document).ready(function(e)
+{
+	$.get( "http://localhost/createRequest.php", function(data) 
+	{
+  		var data = jQuery.parseJSON(data);
+  		$('#inputFullName').val(data.name);
+  		$('#inputEmailId').val(data.email);
+  		$('#inputMobileNumber').val(data.number);
+  		foo(data.gender);
+ 		$('#inputDOB').val(data.dob);
+ 		$('#inputCity').val(data.city);
+  		$('#inputState').val(data.state);
+  		
+	});
 
     $('#contact-details-tab').click(function(e) {
 		$("#login-form").delay(100).fadeIn(100);
@@ -88,3 +121,4 @@ $(document).ready(function(e){
 		});
 
 });
+
