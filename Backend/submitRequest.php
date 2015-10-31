@@ -26,7 +26,8 @@
 	if(isset($_SESSION['UserID']))
 	{
 		$userId = $_SESSION['UserID'];
-		echo $userId;
+		
+		
 		 $conn = mysqli_connect($servername, $username, $pwd, $dbname);
 	
 		// Check connection
@@ -35,8 +36,13 @@
 			die("Connection failed: " . mysqli_connect_error());
 		}
 		
-		$sql = "INSERT INTO Seeker VALUES (DEFAULT, '$name', '$emailId', '$number', '$gender', '$dob', '$city', '$state', '$condition', 0, '$requiredBy', '$desc', '$userId', '$reqName', NULL);";
-		
+		if(strcmp("1", $type))
+		{
+			$sql = "INSERT INTO Seeker('RequestId', 'FullName', 'EmailId', 'MobileNumber', 'Gender', 'DateofBirth', 'city', 'state', 'ReqCondition', 'IsAccepted', 'RequiredByDate', 'Description', 'UserID', 'ReqName', 'VolunteerId') VALUES (DEFAULT, '$name', '$emailId', '$number', '$gender', '$dob', '$city', '$state', '$condition', 0, '$requiredBy', '$desc', '$userId', '$reqName', NULL);";
+		}
+		else{
+			$sql = "INSERT INTO Volunteer('FullName', 'EmailId', 'MobileNumber', 'Gender', 'DateofBirth', 'city', 'state', 'ReqCondition', 'ReqName', ''VolunteerId', 'RequestId', 'Description') VALUES ('$name', '$emailId', '$number', '$gender', '$dob', '$city', '$state', '$condition',  '$reqName', '$userId', DEFAULT, $desc);";
+		}
 		if ($conn->query($sql) === TRUE) {
 			error_log( "successfully!" );
 			echo "Successful Request";
