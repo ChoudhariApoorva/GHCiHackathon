@@ -18,9 +18,65 @@ function deleteRequiredDate()
 	labelreqByDate.style.display = 'none';
 }
 
+function SubmitRequest()
+{
+	alert("submit");
+	var name = $('#inputFullName').val();
+	var emailId = $('#inputEmailId').val();
+	var mobileNumber = $('#inputMobileNumber').val();
+
+	var check_gender = document.getElementsByName('optionsGender');
+	var gender;
+	for(var i = 0; i < check_gender.length; i++)
+	{
+		if(check_gender[i].checked)
+		{
+			gender = check_gender[i].value;
+		}
+	}
+	
+	var dateOfBirth = $('#inputDOB').val();
+	var city = $('#inputCity').val();
+	var state = $('#inputState').val();
+
+	var type = $('#radioOfferingAid').val();
+	var condition = $('#select').val();
+	var requestName = $('#inputRequestName').val(); 	
+	var requiredBy = $('#inputReqByDate').val(); 
+	var desc = $('#inputReqDesc').val(); 
+	
+	var data = new FormData();
+	data.append("name",name);
+	data.append("number",mobileNumber);
+	data.append("emailId",emailId);
+	data.append("gender",gender);
+	data.append("dob",dateOfBirth);
+	data.append("city",city);
+	data.append("state",state);
+	data.append("type",type);
+	data.append("condition",condition);
+	data.append("requestName",requestName);
+	data.append("requiredBy",requiredBy);
+	data.append("desc",desc);
+		
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("POST","http://localhost/GHCiHackathon/Backend/submitRequest.php",true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.onreadystatechange = function() 
+    {
+		if(xhr.readyState == 4 && xhr.status == 200 ) 
+			{
+				alert(xhr.responseText);
+			}
+			
+	};
+	xhr.send(data);
+}
+
 function autoFill()
 {
-	$.get( "http://localhost/Backend/createRequest.php", function(data) 
+	$.get( "http://localhost/GHCiHackathon/Backend/createRequest.php", function(data) 
 	{
   		var data = jQuery.parseJSON(data);
   		$('#inputFullName').val(data.name);
@@ -36,7 +92,7 @@ function autoFill()
 
 $(document).ready(function(e)
 {
-	$.get( "http://localhost/Backend/createRequest.php", function(data) 
+	$.get( "http://localhost/GHCiHackathon/Backend/createRequest.php", function(data) 
 	{
   		var data = jQuery.parseJSON(data);
   		$('#inputFullName').val(data.name);
@@ -72,7 +128,7 @@ $(document).ready(function(e)
 		e.preventDefault();
 	});
 
-	$('#RequestTab-Submit').click(function(e)
+	/*$('#RequestTab-Submit').click(function(e)
 	{
 		var name = $('#inputFullName').val();
 		var emailId = $('#inputEmailId').val();
@@ -134,7 +190,7 @@ $(document).ready(function(e)
    			}
 		});
 
-		});
+		});*/
 
 });
 
