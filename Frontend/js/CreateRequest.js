@@ -20,7 +20,6 @@ function deleteRequiredDate()
 
 function SubmitRequest()
 {
-	alert("submit");
 	var name = $('#inputFullName').val();
 	var emailId = $('#inputEmailId').val();
 	var mobileNumber = $('#inputMobileNumber').val();
@@ -39,16 +38,30 @@ function SubmitRequest()
 	var city = $('#inputCity').val();
 	var state = $('#inputState').val();
 
-	var type = $('#radioOfferingAid').val();
+	var check_type = document.getElementsByName('optionsType');
+	var type;
+	for(var i = 0; i < check_type.length; i++)
+	{
+		if(check_type[i].checked)
+		{
+			type = check_type[i].value;
+		}
+	}
+	
+	//var type = reqType;
 	var condition = $('#select').val();
 	var requestName = $('#inputRequestName').val(); 	
 	var requiredBy = $('#inputReqByDate').val(); 
 	var desc = $('#inputReqDesc').val(); 
+	//alert(type);
+	//alert(condition); 	
+	
+	//alert(name + ',' + emailId + ',' + mobileNumber + ',' + gender + ',' + dateOfBirth + ',' + city + ',' + state + ',' + desc + ',' + condition + ',' + requestName + ',' + requiredBy);
 	
 	var data = new FormData();
 	data.append("name",name);
 	data.append("number",mobileNumber);
-	data.append("emailId",emailId);
+
 	data.append("gender",gender);
 	data.append("dob",dateOfBirth);
 	data.append("city",city);
@@ -58,11 +71,15 @@ function SubmitRequest()
 	data.append("requestName",requestName);
 	data.append("requiredBy",requiredBy);
 	data.append("desc",desc);
+	
+	//alert("after");
+	//alert(JSON.stringify(data));
+	//alert(data.get("name"));
 		
 	var xhr = new XMLHttpRequest();
 
 	xhr.open("POST","http://localhost/GHCiHackathon/Backend/submitRequest.php",true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	//xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.onreadystatechange = function() 
     {
 		if(xhr.readyState == 4 && xhr.status == 200 ) 

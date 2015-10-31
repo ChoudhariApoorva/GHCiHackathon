@@ -1,5 +1,6 @@
 <?php
-	header("Access-Control-Allow-Origin: http://localhost/*");
+	session_start();
+	header("Access-Control-Allow-Origin:*");
 	
 	$name = htmlspecialchars($_POST["name"]);
 	$emailId = htmlspecialchars($_POST["emailId"]);
@@ -13,7 +14,8 @@
 	$username = 'root';
 	$pwd = 'root';
 	$dbname = 'HelpingHand';
-
+	
+	
 	// Create connection
     $conn = mysqli_connect($servername, $username, $pwd, $dbname);
 	
@@ -31,9 +33,23 @@
 	else {
 		error_log("error");
 	}
-	error_log( "Hello, errors!" );						
+	error_log( "Hello, errors!" );			
+
+	
+	$result = $conn->query("SELECT UserID FROM USERS WHERE mobilenumber='$number'");
+	if( !$result)
+		die($conn->error);
+
+	$row = $result->fetch_object();
+    error_log($row->UserID);
+	$UserID = $row->UserID;
+	
+	$_SESSION['UserID'] = $UserID;
+	error_log($_SESSION['UserID']);
+	
 	
 	$conn->close();									
 	echo "Successful";
+	error_log("Success");
 	ob_flush();
 ?>
