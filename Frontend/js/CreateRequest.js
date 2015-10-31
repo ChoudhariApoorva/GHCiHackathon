@@ -18,9 +18,25 @@ function deleteRequiredDate()
 	labelreqByDate.style.display = 'none';
 }
 
+function autoFill()
+{
+	$.get( "http://localhost/Backend/createRequest.php", function(data) 
+	{
+  		var data = jQuery.parseJSON(data);
+  		$('#inputFullName').val(data.name);
+  		$('#inputEmailId').val(data.email);
+  		$('#inputMobileNumber').val(data.number);
+  		foo(data.gender);
+ 		$('#inputDOB').val(data.dob);
+ 		$('#inputCity').val(data.city);
+  		$('#inputState').val(data.state);
+  		
+	});	
+}
+
 $(document).ready(function(e)
 {
-	$.get( "http://localhost/createRequest.php", function(data) 
+	$.get( "http://localhost/Backend/createRequest.php", function(data) 
 	{
   		var data = jQuery.parseJSON(data);
   		$('#inputFullName').val(data.name);
