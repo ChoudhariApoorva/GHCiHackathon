@@ -4,6 +4,7 @@
 	//extract($_POST);
 
 	$name = htmlspecialchars($_POST["name"]);
+	$emailId = htmlspecialchars($_POST["emailId"]);
 	$number = htmlspecialchars($_POST["number"]);
 	$gender = htmlspecialchars($_POST["gender"]);
 	$dob = date("Y-m-d",strtotime(htmlspecialchars($_POST["dob"])));
@@ -14,6 +15,8 @@
 	$requiredBy = date("Y-m-d",strtotime(htmlspecialchars($_POST["requiredBy"])));
 	$desc = htmlspecialchars($_POST["desc"]);
 	$condition = htmlspecialchars($_POST["condition"]);
+
+	error_log($name. " from submit");
 
 	$servername = 'localhost';
 	$username = 'root';
@@ -39,7 +42,7 @@
 			echo "Successful Request";
 		} 
 		else {
-			error_log("error");
+			error_log($conn->error);
 		}
 	}
 	else

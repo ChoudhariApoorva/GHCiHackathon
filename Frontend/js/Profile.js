@@ -40,14 +40,12 @@ function doSubmitAction()
 	alert("Hello");
 
 	xhr.open("POST","http://localhost/GHCiHackathon/Backend/profile.php",true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	
 	xhr.onreadystatechange = function() 
     {
 		if(xhr.readyState == 4) 
 			{
-				//alert(xhr.status);
-				alert(xhr.responseText);
+				window.location.href = "http://localhost/GHCiHackathon/Frontend/CreateRequest.html";
 			}
 			
 	};

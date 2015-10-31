@@ -3,6 +3,7 @@
 	header("Access-Control-Allow-Origin:*");
 	
 	$name = htmlspecialchars($_POST["name"]);
+	error_log($name);
 	$emailId = htmlspecialchars($_POST["emailId"]);
 	$number = htmlspecialchars($_POST["number"]);
 	$gender = htmlspecialchars($_POST["gender"]);
@@ -12,7 +13,7 @@
 	
 	$servername = 'localhost';
 	$username = 'root';
-	$pwd = 'root';
+	$pwd = '';
 	$dbname = 'HelpingHand';
 	
 	
@@ -33,8 +34,6 @@
 	else {
 		error_log("error");
 	}
-	error_log( "Hello, errors!" );			
-
 	
 	$result = $conn->query("SELECT UserID FROM USERS WHERE mobilenumber='$number'");
 	if( !$result)

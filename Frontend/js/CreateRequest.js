@@ -61,7 +61,7 @@ function SubmitRequest()
 	var data = new FormData();
 	data.append("name",name);
 	data.append("number",mobileNumber);
-
+	data.append("emailId",emailId);
 	data.append("gender",gender);
 	data.append("dob",dateOfBirth);
 	data.append("city",city);
@@ -145,69 +145,6 @@ $(document).ready(function(e)
 		e.preventDefault();
 	});
 
-	/*$('#RequestTab-Submit').click(function(e)
-	{
-		var name = $('#inputFullName').val();
-		var emailId = $('#inputEmailId').val();
-		var mobileNumber = $('#inputMobileNumber').val();
-
-		var check_gender = document.getElementsByName('optionsGender');
-		var gender;
-		for(var i = 0; i < check_gender.length; i++)
-		{
-    		if(check_gender[i].checked)
-    		{
-        		gender = check_gender[i].value;
-    		}
-		}
-		
-		var dateOfBirth = $('#inputDOB').val();
-		var city = $('#inputCity').val();
-		var state = $('#inputState').val();
-
-		var type = $('#radioOfferingAid').val();
-		var condition = $('#select').val();
-		var requestName = $('#inputRequestName').val(); 	
-		var requiredBy = $('#inputReqByDate').val(); 	
-
-		var data = {"contact":{
-						"name":name,
-			      		"emailId":emailId,
-			      		"mobileNumber":mobileNumber,
-			      		"gender":gender,
-			      		"dateOfBirth":dateOfBirth,
-			      		"city":city,
-			      		"state":state	
-						},
-
-					"request":{
-						"type":type,
-		      			"condition":condition,
-				      	"requestName":requestName,
-				      	"requiredBy":requiredBy
-				       	},
-					}
-
-		$.ajax
-		({
-			url : "server/antardrishti/create",
-			type : "POST",
-			dataType : "json",
-			contentType: "application/json",
-			data : JSON.stringify(data),
-			success : function(result) 
-			{
-	    		alert("result.success"); // result is an object which is created from the returned JSON
-	    		alert(result.success);
-			},
-			error : function(req, status, error)
-   			{
-    			alert("req.status");
-				alert(req.error);
-   			}
-		});
-
-		});*/
 
 });
 
