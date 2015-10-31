@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	//header("Access-Control-Allow-Origin: *");
+	header("Access-Control-Allow-Origin: *");
 	//extract($_POST);
 
 	$name = htmlspecialchars($_POST["name"]);
@@ -11,55 +11,40 @@
 	$state = htmlspecialchars($_POST["state"]);
 	$type = htmlspecialchars($_POST["type"]);
 	$reqName = htmlspecialchars($_POST["requestName"]);
-	$requiredBy = htmlspecialchars($_POST["requiredBy"]);
+	$requiredBy = date("Y-m-d",strtotime(htmlspecialchars($_POST["requiredBy"])));
 	$desc = htmlspecialchars($_POST["desc"]);
 	$condition = htmlspecialchars($_POST["condition"]);
-	
-	echo "Hello" . $name;
-	/*echo htmlspecialchars($_POST["name"]);
-	echo htmlspecialchars($_POST["number"]);
-	echo htmlspecialchars($_POST["dob"]);
-	echo htmlspecialchars($_POST["city"]);
-	echo htmlspecialchars($_POST["state"]);
-	echo htmlspecialchars($_POST["type"]);
-	echo htmlspecialchars($_POST["condition"]);
-	echo htmlspecialchars($_POST["requestName"]);
-	echo htmlspecialchars($_POST["requiredBy"]);
-	echo htmlspecialchars($_POST["desc"]);*/
-	error_log("hello");
-	
-	if(isset($_SESSION['UserID']))
-		echo $_SESSION['UserID'];
-	else
-		echo 'Session problem';
-	
-	/*$servername = 'localhost';
-	$username = 'root';
-	$pwd = 'root';
-	$dbname = 'HelpingHand';
-	
-	echo $servername. "  ". $requiredBy;*/
 
-	// Create connection
-    /*$conn = mysqli_connect($servername, $username, $pwd, $dbname);
+	$servername = 'localhost';
+	$username = 'root';
+	$pwd = '';
+	$dbname = 'HelpingHand';
+
+	if(isset($_SESSION['UserID']))
+	{
+		$userId = $_SESSION['UserID'];
+		echo $userId;
+		 $conn = mysqli_connect($servername, $username, $pwd, $dbname);
 	
-	// Check connection
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
+		// Check connection
+		if (!$conn) {
+			error_log("connection failed");
+			die("Connection failed: " . mysqli_connect_error());
+		}
+		
+		$sql = "INSERT INTO Seeker VALUES (DEFAULT, '$name', '$emailId', '$number', '$gender', '$dob', '$city', '$state', '$condition', 0, '$requiredBy', '$desc', '$userId', '$reqName', NULL);";
+		
+		if ($conn->query($sql) === TRUE) {
+			error_log( "successfully!" );
+			echo "Successful Request";
+		} 
+		else {
+			error_log("error");
+		}
 	}
-	
-	//echo "Connected". $dob. $name;	
-	$sql = "INSERT INTO Users VALUES (DEFAULT, '$name', '$emailId', '$number', '$gender', '$dob', '$city', '$state');";
-	
-	if ($conn->query($sql) === TRUE) {
-		error_log( "successfully!" );
-	} 
-	else {
-		error_log("error");
+	else
+	{	
+		error_log('Session problem, Please Re login');
+		echo 'Session problem, Please Re login';
 	}
-	error_log( "Hello, errors!" );						
-	
-	$conn->close();									
-	echo "Successful";
-	ob_flush();*/
 ?>
