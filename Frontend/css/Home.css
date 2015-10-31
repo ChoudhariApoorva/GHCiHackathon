@@ -1,7 +1,7 @@
-.mybackground
-{
-	background-image: url("background.jpg");
-	background-repeat:no-repeat;
-   	background-size:cover;
+.navbar {
+	margin-bottom: 0;
 }
 
+.container > .row {
+	padding: 50px 0;
+}

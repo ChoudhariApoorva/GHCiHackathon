@@ -47,7 +47,7 @@
 		}
 		if ($conn->query($sql) === TRUE) {
 			error_log( "successfully!" );
-			echo "Successful";
+			echo "Request submitted successfully";
 		} 
 		else {
 			error_log($conn->error);
