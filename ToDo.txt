@@ -21,3 +21,6 @@ ToDo:
 -validation of input fields
 -disable back button of browser in the home page
 
+-firefox
+-responsive
+
