@@ -4,7 +4,7 @@
 	
 	$servername = 'localhost';
 	$username = 'root';
-	$pwd = 'root';
+	$pwd = '';
 	$dbname = 'HelpingHand';
 	
 	

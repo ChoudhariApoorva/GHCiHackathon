@@ -37,7 +37,6 @@ function doSubmitAction()
 
 	var xhr = new XMLHttpRequest();
 
-	alert("Hello");
 
 	xhr.open("POST","http://localhost/GHCiHackathon/Backend/profile.php",true);
 	

@@ -16,17 +16,25 @@
 	}
 	
 	$userID = $_SESSION['UserID'];
-	$sql = "SELECT * FROM Seeker WHERE UserID = '$userID'";
-	error_log("SQL: " + $sql);
+	$cond = $_GET["cond"];
+	
+	$sql = "SELECT * FROM Volunteer WHERE reqcondition = '$cond'";
+	error_log("DATA_-------------");
+	error_log($sql);
+
 
 	if($result = mysqli_query($conn, $sql))
 	{
-		$list = array();
-		while ($row = mysqli_fetch_row($result)) {
-        	array_push($list, $row[8]);
-    	}
-
-		echo json_encode($list);
-		//error_log("manage" . $list[0]);
+		$row = mysqli_fetch_row($result);
+	
+		$data = array('name' => $row[0], 
+				  'email' => $row[1],
+				  'number' => $row[2],
+				  'city' => $row[5]
+				  	);
+		
+		
+		error_log($data["email"]);
+		echo json_encode($data);
 	}
 ?>

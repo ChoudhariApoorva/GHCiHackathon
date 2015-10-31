@@ -49,36 +49,19 @@
 				      <th>REQUESTS</th>
 				      <th>DETAILS</th>
 				      <th>DELETE REQUEST</th>
+				      <th>FIND VOLUNTEERS</th>
 		    		</tr>
 		  		</thead>
 		  		<tbody>
-		    		<tr>
-				      <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
-				      <td><a href="#req1" class="requests" style="font-size:150%">Help with writing paper</a></td>
+		    		<tr id="dispRow">
+				      <td><span class="glyphicon glyphicon-info-sign" style="color:green"></span></td>
+				      <td><a href="#req1" class="requests" style="font-size:150%" id="firstRow">Help with writing paper</a></td>
 				      <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#view-details-matched">View Details</a></td>
 				      <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete">Delete</a></td>
+				      <td><a href="#" class="btn btn-primary" data-toggle="modal" onclick="findVolunteers()">Find Volunteers</a></td>
 		    		</tr>
 		    		
-		    		 <tr>
-            			<td><span class="glyphicon glyphicon-info-sign" style="color:teal"></td>
-			            <td><a href="#req2" class="requests" style="font-size:150%">Require Blood : O+ve</a></td>
-			            <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#view-details-unmatched">View Details</a></td>
-			            <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete">Delete</a></td>
-          			</tr>
-
-		    		<tr>
-				      <td><span class="glyphicon glyphicon-ok" style="color:green"></span></td>
-				      <td><a href="#req2" class="requests" style="font-size:150%">Scribe required</a></td>
-				      <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#view-details-matched">View Details</a></td>
-				      <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete">Delete</a></td>
-		    		</tr>
-		    		
-		    		<tr>
-            			<td><span class="glyphicon glyphicon-info-sign" style="color:teal"></td>
-			            <td><a href="#req2" class="requests" style="font-size:150%">Need a ride</a></td>
-			            <td><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#view-details-unmatched">View Details</a></td>
-			            <td><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete">Delete</a></td>
-          			</tr>
+		    	
 		  		</tbody>
 			</table> 
 
@@ -86,49 +69,25 @@
 			<div class="modal fade" id="view-details-matched" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	    		<div class="modal-dialog">
 	        		<div class="modal-content">
-		            	<div class="modal-header"><h3>Help with writing paper</h3></div>
+		            	<div class="modal-header"><h3 id="heading">Help with writing paper</h3></div>
 		            	<div class="modal-body">
-		            		<h4>Seeker Information</h4>
-		            		<ul>
-		            			<li>Name</li>
-		            			<li>Age</li>
-		            			<li>Place</li>
-		            		</ul>
 
 		            		<h4>Volunteer Information</h4>
 		            		<ul>
-		            			<li>Name</li>
-		            			<li>Age</li>
-		            			<li>Place</li>
+		            			<li id="VolunteerName">Name</li>
+		            			<li id="VolunteerEmail">Email</li>
+		            			<li id="VolunteerNumber">Number</li>
+		            			<li id="VolunteerCity">Place</li>
 		            		</ul>
 		            	</div>
 		            	<div class="modal-footer">
-		                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-		                	<a class="btn btn-primary btn-ok">Connect</a>
+		                	<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
 		            	</div>
 	        		</div>
 	    		</div>
 			</div>
 
-			<!--Pop up box to view details of unmathced entries-->
-			<div class="modal fade" id="view-details-unmatched" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	    		<div class="modal-dialog">
-	        		<div class="modal-content">
-		            	<div class="modal-header"><h3>Require O+ve blood</h3></div>
-		            	<div class="modal-body">
-		            		<h4>Seeker Information</h4>
-		            		<ul>
-		            			<li>Name</li>
-		            			<li>Age</li>
-		            			<li>Place</li>
-		            		</ul>
-		            	</div>
-		            	<div class="modal-footer">
-		                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-		            	</div>
-	        		</div>
-	    		</div>
-			</div>
+			
 
 			<!--Pop up box to confirm delete-->
 			<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -138,12 +97,11 @@
 		            	<div class="modal-body">Are you sure you want to delete?</div>
 		            	<div class="modal-footer">
 		                	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-		                	<a class="btn btn-danger btn-ok">Delete</a>
+		                	<a class="btn btn-danger btn-ok" data-dismiss="modal" onclick="deleteRequest()">Delete</a>
 		            	</div>
 	        		</div>
 	    		</div>
 			</div>
-
 
 	 	</div>
 
